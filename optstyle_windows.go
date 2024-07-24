@@ -10,9 +10,9 @@ import (
 // Windows uses a front slash for both short and long options.  Also it uses
 // a colon for name/argument delimter.
 const (
-	defaultShortOptDelimiter = '/'
-	defaultLongOptDelimiter  = "/"
-	defaultNameArgDelimiter  = ':'
+	defaultShortOptDelimiter = '-'
+	defaultLongOptDelimiter  = "--"
+	defaultNameArgDelimiter  = '='
 )
 
 func argumentStartsOption(arg string) bool {
