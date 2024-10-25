@@ -5,11 +5,19 @@ package flags
 
 import (
 	"flag"
+	"os"
+	"strconv"
 
 	"golang.org/x/sys/unix"
 )
 
 func getTerminalColumns() int {
+	cols := os.Getenv("COLS")
+	if cols != "" {
+		termsize, _ := strconv.Atoi(cols)
+		return termsize
+	}
+
 	if flag.Lookup("test.v") != nil {
 		return defaultTermSize
 	}
